@@ -773,6 +773,9 @@ body.container {
   border-radius: 10px;
   background-clip: padding-box !important;
 }
+.post-sum p{
+  line-height: 35px;
+}
 .blog-box {
   padding-bottom: 49px;
 }
