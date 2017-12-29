@@ -124,9 +124,6 @@ a:hover .caret-white {
 .breadcrumb > .active {
   color: inherit;
 }
-.breadcrumb > .active {
-  max-width: 150px;
-}
 .accordion-group,
 .accordion-inner {
   border-color: #eaeef1;
@@ -3705,6 +3702,11 @@ fieldset[disabled] .i-checks input + i:before {
   .col-lg-2-4 {
     width: 20.000%;
     float: left;
+  }
+}
+@media (max-width: 991px) {
+  .breadcrumb > .active {
+  max-width: 150px;
   }
 }
 @media (max-width: 767px) {
