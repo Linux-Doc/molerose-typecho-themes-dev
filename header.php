@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/animate.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/font-awesome.min.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/simple-line-icons.css'); ?>">
-  <link rel="stylesheet" href="<?php $this->options->themeUrl('css/font.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/app.css'); ?>">
   
   <script src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
