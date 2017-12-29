@@ -7,12 +7,12 @@
         <div class="row"> 
          <div class="col-sm-9"> 
           <div class="blog-post"> 
-          <ol class="breadcrumb">
-            <li><a href="<?php $this->options->siteUrl(); ?>">首页</a></li>
+          <ol class="breadcrumb clearfix">
+            <li class="pull-left"><a href="<?php $this->options->siteUrl(); ?>">首页</a></li>
             <?php if ($this->is('index')): ?>
             <?php elseif ($this->is('post')): ?>
-            <li><?php $this->category(); ?></li>
-            <li class="active"><?php $this->title() ?></li>
+            <li class="pull-left"><?php $this->category(); ?></li>
+            <li class="active text-ellipsis pull-left"><?php $this->title() ?></li>
             <?php else: ?>
               <li><?php $this->archiveTitle(' &raquo; ','',''); ?></li>
             <?php endif; ?>
