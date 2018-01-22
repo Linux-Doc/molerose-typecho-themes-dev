@@ -826,6 +826,7 @@ body.container {
 .blog-file-box h3{
   margin-top: 10px;
   padding-left: 15px;
+  clear: both;
 }
 .blog-file-box dl dt {
   padding: 0 15px;
@@ -1764,6 +1765,9 @@ fieldset[disabled] .btn-dark.active {
 .blog-item-info a:hover {
   color: #666;
 }
+
+
+
 .timeline {
   display: table;
   width: 100%;
