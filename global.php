@@ -40,5 +40,5 @@ $time = time() - $site_create_time;
 $uptime = Sec2Time($time);
 ?>
 <footer class="scrollable wrapper blog-footer">
-   &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a> <script src="https://s19.cnzz.com/z_stat.php?id=1267313509&web_id=1267313509" language="JavaScript"></script> <span class="pull-right label bg-light"><?php echo $uptime['years']; ?>年<?php echo $uptime['days']; ?>天</span>
+   &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a> - <a href="https://tongji.baidu.com/web/welcome/ico?s=2931b314f9d3d661167ff86b21ad9005" target="_blank">统计</a> <span class="pull-right label bg-light"><?php echo $uptime['years']; ?>年<?php echo $uptime['days']; ?>天</span> 
 </footer>
