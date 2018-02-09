@@ -21,7 +21,7 @@
             <?php endif; ?>
 
             <font class="pull-right blog-page-tit"> <?php $this->title() ?></font>
-            <i class="icon-umbrella icon blog-page-ico pull-right"></i>
+            <i class="fa fa-hand-peace-o blog-page-ico pull-right"></i>
           </ol>
 
          <section class="panel ">
@@ -31,12 +31,12 @@
                   <i class="on md b-white bottom"></i>
                 </a>
                 <div class="clear">
-                  <a href="<?php $this->options->siteUrl(); ?>" class="text-info">Molerose </a>
+                  <a href="<?php $this->options->siteUrl(); ?>" class="text-info"><?php $this->options->BlogName(); ?> </a>
                   <small class="block text-muted">
                   <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
               article <?php $stat->publishedPostsNum() ?> / sort <?php $stat->categoriesNum() ?> / comment <?php $stat->publishedCommentsNum() ?> / pages <?php $stat->publishedPagesNum() ?>
                   </small>
-                  <a href="javascript:;" class="btn btn-xs bg-danger m-t-xs" data-toggle="modal" data-target="#m-appreciate" title="何不请我喝杯咖啡？"><i class="icon icon-heart pull-left m-t-xxs m-r-xs"></i> Award</a>
+                  <a href="javascript:;" class="btn btn-xs bg-danger m-t-xs" data-toggle="modal" data-target="#m-appreciate" title="何不请我喝杯咖啡？"><i class="fa fa-heart-o pull-left m-t-xxs m-r-xs"></i> Award</a>
                   <?php $this->need('pay.php'); ?>
                 </div>
               </div>

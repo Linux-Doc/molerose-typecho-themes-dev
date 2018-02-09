@@ -22,7 +22,7 @@
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
         ), '', ''); ?></font>
-            <i class="icon-umbrella icon blog-page-ico pull-right"></i>
+            <i class="fa fa-hand-peace-o blog-page-ico pull-right"></i>
           </ol>
            <?php while($this->next()): ?>
            <div class="post-item"> 
@@ -35,7 +35,7 @@
               <p><?php $this->excerpt(200, '...'); ?></p> 
              </div> 
              <div class="line"></div> 
-             <div class="text-muted"> 
+             <div class="text-muted blog-item-info"> 
               <i class="fa fa-user icon-muted"></i> by 
               <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author" class="m-r-sm"><?php $this->author(); ?></a>
               <i class="fa fa-clock-o icon-muted"></i> <font datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> <?php $this->date('Y-m-d H:i a'); ?> </font>

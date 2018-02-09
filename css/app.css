@@ -2241,6 +2241,13 @@ fieldset[disabled] .btn-dark.active {
 .bg-dark a:hover {
   color: #fff;
 }
+.msidebar-ico a {
+  color: #999;
+  padding: 0 3px;
+}
+.msidebar-ico a:hover {
+  color: #666;
+}
 .bg-dark a.list-group-item:hover,
 .bg-dark a.list-group-item:focus {
   background-color: inherit;
@@ -3497,6 +3504,17 @@ a.bg-light:focus {
 .thumb-lg {
   width: 128px;
   display: inline-block;
+}
+.nav-xs .thumb-lg {
+  width: 100%;
+  padding: 0 10px;
+}
+.nav-xs .blog-stats {
+  width: 100%;
+  padding: 0;
+}
+.nav-xs .blog-nav-ico {
+  padding: 0;
 }
 .thumb-md {
   width: 64px;

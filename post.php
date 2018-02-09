@@ -22,7 +22,7 @@
             <?php endif; ?>
 
             <font class="pull-right blog-page-tit"> <?php $this->category(','); ?></font>
-            <i class="icon-umbrella icon blog-page-ico pull-right"></i>
+            <i class="fa fa-hand-peace-o blog-page-ico pull-right"></i>
           </ol>
 
            <div class="post-item"> 
@@ -39,7 +39,8 @@
               <i class="fa fa-clock-o icon-muted"></i> 最后修改：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php echo date('Y年m月d日 H:i A', $this->modified);?></time>
              </div> 
              <div class="blog-appreciate text-center">
-              <a href="#" class="btn btn-s-md btn-danger" data-toggle="modal" data-target="#m-appreciate"><i class="fa fa-heart"></i> 赞赏支持</a>
+              <a href="#" class="btn btn-s-md btn-danger m-t-md" data-toggle="modal" data-target="#m-appreciate"><i class="fa fa-heart"></i> 赞赏支持</a>
+              <div class="m-t-md">最大的开心，莫过于你请我吃辣条</div>
              </div>
              <?php $this->need('pay.php'); ?>
             </div> 

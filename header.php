@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/OwO.min.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/animate.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/font-awesome.min.css'); ?>">
-  <link rel="stylesheet" href="<?php $this->options->themeUrl('css/simple-line-icons.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/app.css'); ?>">
   
   <script src="<?php $this->options->themeUrl('js/OwO.min.js'); ?>"></script>
@@ -32,9 +31,9 @@
   <section class="vbox"> 
    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs"> 
    	<!-- Logo -->
-    <div class="navbar-header aside bg-success"> 
-     <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html"> <i class="icon-list"></i> </a> 
-     <a href="<?php $this->options->siteUrl(); ?>" class="navbar-brand text-lt"> <i class="fa fa-pagelines"></i> <span class="hidden-nav-xs m-l-sm">MoleRose</span> </a> 
+    <div class="navbar-header aside bg-info"> 
+     <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html"> <i class="fa fa-navicon"></i> </a> 
+     <a href="<?php $this->options->siteUrl(); ?>" class="navbar-brand text-lt"> <i class="fa fa-pagelines"></i> <span class="hidden-nav-xs m-l-sm"><?php $this->options->IndexName(); ?> </span> </a> 
     </div> 
     <!-- /Logo -->
     <!-- Mobile btn -->
@@ -56,7 +55,7 @@
 	<!-- Begin -->
      <ul class="nav navbar-nav m-n hidden-xs"> 
      <!-- SuiuiNian -->
-      <li class="hidden-xs"> <a href="#" class="dropdown-toggle lt" data-toggle="dropdown"> <i class="icon-bell"></i></a> 
+      <li class="hidden-xs"> <a href="#" class="dropdown-toggle lt" data-toggle="dropdown"> <i class="fa fa-bell-o"></i></a> 
        <section class="dropdown-menu aside-xl animated fadeInUp"> 
         <section class="panel bg-white"> 
          <div class="panel-heading b-light bg-light"> 
@@ -80,7 +79,7 @@
        </li> 
        <!-- / SuiuiNian -->
        <!-- Login -->
-       <li class="hidden-xs"> <a href="#" data-toggle="dropdown" class="dropdown-toggle lt"> <i class="icon-user"></i> </a> 
+       <li class="hidden-xs"> <a href="#" data-toggle="dropdown" class="dropdown-toggle lt"> <i class="fa fa-user-o"></i> </a> 
        <section class="dropdown-menu aside animated fadeInUp panel-body bg-white dropdown-stop"> 
           <form role="form" action="<?php $this->options->loginaction(); ?>" method="post">
             <div class="form-group">

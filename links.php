@@ -27,7 +27,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <?php endif; ?>
 
             <font class="pull-right blog-page-tit"> <?php $this->title() ?></font>
-            <i class="icon-umbrella icon blog-page-ico pull-right"></i>
+            <i class="fa fa-hand-peace-o blog-page-ico pull-right"></i>
           </ol>
            <div class="post-item"> 
              <ul class="clearfix blog-links-box">

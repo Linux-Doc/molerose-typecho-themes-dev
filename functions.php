@@ -5,18 +5,30 @@ function themeConfig($form) {
     $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点 LOGO 地址'), _t('在这里填入一个图片 URL 地址, 以在网站标题前加上一个 LOGO'));
     $form->addInput($logoUrl);
     
-    $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
-    array('ShowRecentPosts' => _t('显示最新文章'),
-    'ShowRecentComments' => _t('显示最近回复'),
-    'ShowCategory' => _t('显示分类'),
-    'ShowArchive' => _t('显示归档'),
-    'ShowOther' => _t('显示其它杂项')),
-    array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
+    // $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
+    // array('ShowRecentPosts' => _t('显示最新文章'),
+    // 'ShowRecentComments' => _t('显示最近回复'),
+    // 'ShowCategory' => _t('显示分类'),
+    // 'ShowArchive' => _t('显示归档'),
+    // 'ShowOther' => _t('显示其它杂项')),
+    // array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
     
-    $form->addInput($sidebarBlock->multiMode());
-
-    //博主职业
+    // $form->addInput($sidebarBlock->multiMode());
     /*<?php $this->options->socialqq(); ?> 调用方法*/
+
+    //首页名称
+    $IndexName = new Typecho_Widget_Helper_Form_Element_Text('IndexName', NULL, NULL, _t('首页的名称'), _t('输入你的首页显示的名称'));
+    $form->addInput($IndexName);
+    //博主名称
+    $BlogName = new Typecho_Widget_Helper_Form_Element_Text('BlogName', NULL, NULL, _t('博主的名称'), _t('输入你的名称建议为英文，中文也可'));
+    $form->addInput($BlogName);
+    //博主头像
+    $BlogPic = new Typecho_Widget_Helper_Form_Element_Text('BlogPic', NULL, NULL, _t('头像图片地址'), _t('logo头像地址，尺寸在80*80左右即可'));
+    $form->addInput($BlogPic);
+    //博主所在城市
+    $BlogAdd = new Typecho_Widget_Helper_Form_Element_Text('BlogAdd', NULL, NULL, _t('博主所在城市'), _t('输入博主所在城市'));
+    $form->addInput($BlogAdd);
+    //博主职业
     $BlogJob = new Typecho_Widget_Helper_Form_Element_Text('BlogJob', NULL, NULL, _t('博主的介绍'), _t('输入你的简介'));
     $form->addInput($BlogJob);
     //首页文字
@@ -43,6 +55,9 @@ function themeConfig($form) {
     //weibo
     $socialweibo = new Typecho_Widget_Helper_Form_Element_Text('socialweibo', NULL, NULL, _t('输入微博ID'), _t('在这里输入微博名称'));
     $form->addInput($socialweibo);
+    //weiboUrl
+    $socialweiboUrl = new Typecho_Widget_Helper_Form_Element_Text('socialweiboUrl', NULL, NULL, _t('输入微博主页链接'), _t('输入微博主页链接'));
+    $form->addInput($socialweiboUrl);
     //网易云音乐
     $socialmusic = new Typecho_Widget_Helper_Form_Element_Text('socialmusic', NULL, NULL, _t('输入网易云音乐ID'), _t('在这里输入网易云音乐ID'));
     $form->addInput($socialmusic);

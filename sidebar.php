@@ -6,17 +6,49 @@
         <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railopacity="0.2"> 
          <!-- nav --> 
          <nav class="nav-primary hidden-xs"> 
+          <!-- author info -->
+         <ul class="nav clearfix"> 
+           <li> 
+            <div class="text-center bg-white-only"> 
+              <a href="#" class="thumb-lg m-t"> <img src="<?php $this->options->BlogPic(); ?>" class="img-circle" /> </a> 
+              <div class="m-t-sm l-h-2x"> 
+              <small class="text-muted"><i class="fa fa-map-marker"></i> <?php $this->options->BlogAdd(); ?></small> 
+              </div> 
+            </div>
+           </li> 
+           <li>
+            <div class="bg-info text-center clearfix">
+              <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
+               <div class="col-xs-6 blog-stats m-t-sm"> 
+                 <span class="block text-white"><?php $stat->publishedPostsNum() ?></span> 
+                 <small class="text-muted">Article</small> 
+               </div> 
+               <div class="col-xs-6 blog-stats m-t-sm"> 
+                 <span class="block text-white"><?php $stat->publishedCommentsNum() ?></span> 
+                 <small class="text-muted">Comment</small> 
+               </div> 
+               <p class="m-t-sm blog-nav-ico col-xs-12"> 
+                <a href="<?php $this->options->socialgithub(); ?>" title="Github"  target="_blank" ><i class="fa fa-github"></i></a> 
+                <a href="mailto:<?php $this->options->socialemail(); ?>" title="Email" ><i class="fa fa-envelope-o"></i></a>
+                <a href="<?php $this->options->socialweiboUrl(); ?>" title="Sina Weibo" target="_blank" ><i class="fa fa-weibo"></i></a>
+                <a href="<?php $this->options->commentsFeedUrl(); ?>" title="Comments RSS" target="_blank"><i class="fa fa-rss"></i></a>
+                <a href="<?php $this->options->feedUrl(); ?>" title="Feed RSS" target="_blank"><i class="fa fa-rss-square"></i></a>
+                <a href="<?php $this->options->analysis(); ?>" title="Statistics" target="_blank"><i class="fa fa-area-chart"></i></a>
+               </p>
+            </div>
+           </li>
+          </ul>
           <ul class="nav" data-ride="collapse"> 
            <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> <?php _e('Navigation'); ?> </li> 
-           <li> <a href="<?php $this->options->siteUrl(); ?>" class="auto"> <span class="pull-right text-muted"> </span> <i class="icon-emoticon-smile icon"> </i> <span>Home Pages</span> </a> 
+           <li> <a href="<?php $this->options->siteUrl(); ?>" class="auto"> <span class="pull-right text-muted"> </span> <i class="fa fa-send-o"> </i> <span>Home Pages</span> </a> 
             </li> 
             <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> <?php _e('Composition'); ?> </li> 
-           <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="icon-ghost icon"> </i> <span> <?php _e('MoleRose'); ?> </span> </a> 
+           <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="fa fa-lemon-o"> </i> <span> <?php _e('MoleRose'); ?> </span> </a> 
             <ul class="nav dk text-sm"> 
               <?php $this->widget('Widget_Metas_Category_List')
                    ->parse('<li><a href="{permalink}" class="auto"> <b class="badge bg-info pull-right">{count}</b> <i class="fa fa-angle-right text-xs"></i> <span>{name}</span> </a> </li>'); ?>
             </ul> </li> 
-           <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="icon-cup icon"> </i> <span> <?php _e('Pages'); ?> </span> </a> 
+           <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="fa fa-smile-o"> </i> <span> <?php _e('Pages'); ?> </span> </a> 
             <ul class="nav dk text-sm"> 
                   <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                     <?php while($pages->next()): ?>
@@ -28,22 +60,7 @@
          <!-- / nav --> 
         </div> 
        </section> 
-       <footer class="footer hidden-xs no-padder text-center-nav-xs"> 
-        <div class="bg hidden-xs "> 
-         <div class="dropdown dropup wrapper-sm clearfix"> 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-l-xs"> <img src="<?php $this->options->logoUrl() ?>" class="dker" alt="..." /> </span> <span class="hidden-nav-xs clear"> <span class="block m-l"> <strong class="font-bold text-lt">MolrRose</strong> <b class="caret"></b> </span> <span class="text-muted text-xs block m-l">Web Developer</span> </span> </a> 
-          <ul class="dropdown-menu animated fadeInRight aside text-left"> 
-           <li> <span class="arrow bottom hidden-nav-xs"></span> <a href="mailto:admin@molerose.com">电子邮箱 <i class="fa fa-envelope pull-right"></i></a></li> 
-           <li> <a href="https://github.com/amplest">Github <i class="fa fa-github-alt pull-right"></i></a></li> 
-           <li> <a href="http://weibo.com/xiongxingjiayou">新浪微博 <i class="fa fa-weibo pull-right"></i></a> </li> 
-           <li> <a href="#"> 吾家小店 <i class="fa fa-shopping-cart pull-right"></i></a> </li> 
-           <li> <a href="https://github.com/amplest/molerose-typecho-themes-dev">开发文档 <i class="fa fa-book pull-right"></i></a> </li> 
-           <li class="divider"></li> 
-           <li><p class="text-center">生命就一次，为何不开心点</p></li> 
-          </ul> 
-         </div> 
-        </div> 
-       </footer> 
+
       </section> 
      </aside> 
      <!-- /.aside -->
