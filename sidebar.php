@@ -9,35 +9,15 @@
           <!-- author info -->
          <ul class="nav clearfix"> 
            <li> 
-            <div class="text-center bg-white-only"> 
+            <div class="text-center"> 
               <a href="#" class="thumb-lg m-t"> <img src="<?php $this->options->BlogPic(); ?>" class="img-circle" /> </a> 
               <div class="m-t-sm l-h-2x"> 
               <small class="text-muted"><i class="fa fa-map-marker"></i> <?php $this->options->BlogAdd(); ?></small> 
               </div> 
             </div>
            </li> 
-           <li>
-            <div class="bg-info text-center clearfix">
-              <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
-               <div class="col-xs-6 blog-stats m-t-sm"> 
-                 <span class="block text-white"><?php $stat->publishedPostsNum() ?></span> 
-                 <small class="text-muted">Article</small> 
-               </div> 
-               <div class="col-xs-6 blog-stats m-t-sm"> 
-                 <span class="block text-white"><?php $stat->publishedCommentsNum() ?></span> 
-                 <small class="text-muted">Comment</small> 
-               </div> 
-               <p class="m-t-sm blog-nav-ico col-xs-12"> 
-                <a href="<?php $this->options->socialgithub(); ?>" title="Github"  target="_blank" ><i class="fa fa-github"></i></a> 
-                <a href="mailto:<?php $this->options->socialemail(); ?>" title="Email" ><i class="fa fa-envelope-o"></i></a>
-                <a href="<?php $this->options->socialweiboUrl(); ?>" title="Sina Weibo" target="_blank" ><i class="fa fa-weibo"></i></a>
-                <a href="<?php $this->options->commentsFeedUrl(); ?>" title="Comments RSS" target="_blank"><i class="fa fa-rss"></i></a>
-                <a href="<?php $this->options->feedUrl(); ?>" title="Feed RSS" target="_blank"><i class="fa fa-rss-square"></i></a>
-                <a href="<?php $this->options->analysis(); ?>" title="Statistics" target="_blank"><i class="fa fa-area-chart"></i></a>
-               </p>
-            </div>
-           </li>
           </ul>
+          <div class="line dk" style="height: 1px;"></div>
           <ul class="nav" data-ride="collapse"> 
            <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> <?php _e('Navigation'); ?> </li> 
            <li> <a href="<?php $this->options->siteUrl(); ?>" class="auto"> <span class="pull-right text-muted"> </span> <i class="fa fa-send-o"> </i> <span>Home Pages</span> </a> 
@@ -60,6 +40,27 @@
          <!-- / nav --> 
         </div> 
        </section> 
+      <footer class="footer no-padder"> 
+        <div class="bg-info text-center clearfix">
+          <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
+           <div class="col-xs-6 blog-stats m-t-sm"> 
+             <span class="block text-white"><?php $stat->publishedPostsNum() ?></span> 
+             <small class="text-muted">Article</small> 
+           </div> 
+           <div class="col-xs-6 blog-stats m-t-sm"> 
+             <span class="block text-white"><?php $stat->publishedCommentsNum() ?></span> 
+             <small class="text-muted">Comment</small> 
+           </div> 
+           <p class="m-t-sm blog-nav-ico col-xs-12"> 
+            <a href="<?php $this->options->socialgithub(); ?>" title="Github"  target="_blank" ><i class="fa fa-github"></i></a> 
+            <a href="mailto:<?php $this->options->socialemail(); ?>" title="Email" ><i class="fa fa-envelope-o"></i></a>
+            <a href="<?php $this->options->socialweiboUrl(); ?>" title="Sina Weibo" target="_blank" ><i class="fa fa-weibo"></i></a>
+            <a href="<?php $this->options->commentsFeedUrl(); ?>" title="Comments RSS" target="_blank"><i class="fa fa-rss"></i></a>
+            <a href="<?php $this->options->feedUrl(); ?>" title="Feed RSS" target="_blank"><i class="fa fa-rss-square"></i></a>
+            <a href="<?php $this->options->analysis(); ?>" title="Statistics" target="_blank"><i class="fa fa-area-chart"></i></a>
+           </p>
+        </div>
+        </footer>
 
       </section> 
      </aside> 
