@@ -40,8 +40,8 @@
          <!-- / nav --> 
         </div> 
        </section> 
-      <footer class="footer no-padder"> 
-        <div class="bg-info text-center clearfix">
+      <footer class="footer no-padder hidden-xs "> 
+        <div class="bg-info hidden-xs text-center clearfix">
           <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
            <div class="col-xs-6 blog-stats m-t-sm"> 
              <span class="block text-white"><?php $stat->publishedPostsNum() ?></span> 

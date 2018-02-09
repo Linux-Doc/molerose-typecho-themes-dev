@@ -830,6 +830,7 @@ body.container {
 }
 .blog-file-box dl dt {
   padding: 0 15px;
+  clear: both;
 }
 .blog-file-box dl dt,
 .blog-file-box dl dd {
