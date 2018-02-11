@@ -670,7 +670,7 @@ body.container {
     bottom: 50px;
   }
   .vbox > section.w-f-md {
-    bottom: 87px;
+    bottom: 50px;
   }
   .vbox > footer {
     top: auto;
@@ -775,6 +775,9 @@ body.container {
 }
 .post-sum {
   line-height: 30px;
+}
+.blog-stats {
+  padding: 0 ;
 }
 .blog-file-tit {
   max-width: 100%;
