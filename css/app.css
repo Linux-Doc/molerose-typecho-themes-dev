@@ -1770,6 +1770,34 @@ fieldset[disabled] .btn-dark.active {
   color: #666;
 }
 
+@media (max-width:992px) {
+#comments > .comment-list {
+  position: relative;
+}
+#comments > .comment-list > li:after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background: #eee;
+  left: 23px;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+#comments > .comment-list li img {
+  z-index: 1;
+}
+
+.comment-children {
+  margin-left: -50px;
+}
+.comment-children .comment-author img {
+  width: 35px !important;
+  margin-left: -45px;
+  z-index: 1;
+}
+}
+
 
 
 .timeline {
