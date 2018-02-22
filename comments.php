@@ -32,10 +32,10 @@ echo $commentClass;
             <?php $comments->gravatar('40', ''); ?>
             </a>
             <cite class="fn comment-info-title"><?php echo $author; ?><?php  echo '<span class="label bg-dark m-l-xs">'.$isauthor.'</span>';?></cite>
-            <span class="comment-meta" ><?php $comments->date('F jS, Y \a\t h:i a'); ?></span>
+            <span class="comment-meta" ><?php echo timesince($comments->created);?></span>
         </div>
 
-        <p><b><?php get_comment_at($comments->coid)?></b></p>
+        <div><b><?php get_comment_at($comments->coid)?></b></div>
         <p><?php get_filtered_comment($comments->coid)?></p>
         
         <?php if ('waiting' == $comments->status) { ?>  

@@ -776,6 +776,9 @@ body.container {
 .post-sum {
   line-height: 30px;
 }
+.blog-post .post-sum img {
+  max-width: 100%;
+}
 .blog-stats {
   padding: 0 ;
 }
