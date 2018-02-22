@@ -30,8 +30,6 @@ $(function () {
   e.preventDefault()
   $(this).tab('show')
   });
-  //Author
-  $(".comment-by-author > .comment-txt-box .comment-info-title a").append('<span class=\'label bg-dark m-l-xs\'>博主</span>');
 })
 
 // data-shift api 
