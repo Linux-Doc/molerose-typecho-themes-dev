@@ -10,7 +10,7 @@
          <ul class="nav clearfix"> 
            <li> 
             <div class="text-center"> 
-              <a href="#" class="thumb-lg m-t"> <img src="<?php $this->options->BlogPic(); ?>" class="img-circle" /> </a> 
+              <a href="/start-page.html" class="thumb-lg m-t"> <img src="<?php $this->options->BlogPic(); ?>" class="img-circle" /> </a> 
               <div class="m-t-sm m-b-sm l-h-2x"> 
               <small class="text-muted"><i class="fa fa-map-marker"></i> <?php $this->options->BlogAdd(); ?></small> 
               </div> 
@@ -34,12 +34,12 @@
            <li> <a href="<?php $this->options->siteUrl(); ?>" class="auto"> <span class="pull-right text-muted"> </span> <i class="fa fa-send-o"> </i> <span>Home Pages</span> </a> 
             </li> 
             <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted"> <?php _e('Composition'); ?> </li> 
-           <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="fa fa-lemon-o"> </i> <span> <?php _e('MoleRose'); ?> </span> </a> 
+           <li> <a href="javascript:;" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="fa fa-lemon-o"> </i> <span> <?php _e('MoleRose'); ?> </span> </a> 
             <ul class="nav dk text-sm"> 
               <?php $this->widget('Widget_Metas_Category_List')
                    ->parse('<li><a href="{permalink}" class="auto"> <b class="badge bg-info pull-right">{count}</b> <i class="fa fa-angle-right text-xs"></i> <span>{name}</span> </a> </li>'); ?>
             </ul> </li> 
-           <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="fa fa-smile-o"> </i> <span> <?php _e('Pages'); ?> </span> </a> 
+           <li> <a href="javascript:;" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="fa fa-smile-o"> </i> <span> <?php _e('Pages'); ?> </span> </a> 
             <ul class="nav dk text-sm"> 
                   <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                     <?php while($pages->next()): ?>
