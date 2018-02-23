@@ -51,7 +51,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                             $mon = $mon_tmp;
                             $output .= '<dt><small class="label bg-light">'. $mon .' 月</small></dt>'; //输出月份
                         }
-                        $output .= '<dd class="col-md-6 col-sm-12 col-xs-12"><a href="'. $archives->permalink .'" title="'. $archives->title .'"><span class="blog-file-tit text-ellipsis">'. $archives->title .'</span><div><small><i class="icon-heart icon"></i>'.date('于d日发布，',$archives->created).'共'. $archives->commentsNum.'条评论</small></div></a></dd>'; //输出文章日期和标题
+                        $output .= '<dd class="col-md-6 col-sm-12 col-xs-12"><a href="'. $archives->permalink .'" title="'. $archives->title .'"><span class="blog-file-tit text-ellipsis">'. $archives->title .'</span><div><small><i class="fa fa-heart-o"></i>'.date('于d日发布，',$archives->created).'共'. $archives->commentsNum.'条评论</small></div></a></dd>'; //输出文章日期和标题
                     endwhile;
                     $output .= '</dl></div>';
                     echo $output;
