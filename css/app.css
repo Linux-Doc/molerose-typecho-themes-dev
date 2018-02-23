@@ -881,7 +881,7 @@ body.container {
 .comment-txt-box .awaiting {
   font-size: 12px;
   font-style: normal;
-  color: #ccc;
+  color: red;
   line-height: 30px;
 }
 .cancel-comment-reply {

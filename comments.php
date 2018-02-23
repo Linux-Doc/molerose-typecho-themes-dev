@@ -36,12 +36,8 @@ echo $commentClass;
         </div>
 
         <div><b><?php get_comment_at($comments->coid)?></b></div>
-        <p><?php get_filtered_comment($comments->coid)?></p>
+        <p><?php $comments->content();?></p>
         
-        <?php if ('waiting' == $comments->status) { ?>  
-        <em class="awaiting"><?php $options->commentStatus(); ?></em>  
-        <?php } ?>
-        <!-- 评论审核，waiting 后全等的对象，对应 threadedComments 的第一，二个对象 -->
         <div class="comment-meta">
             <span class="comment-reply label bg-info"><?php $comments->reply(); ?></span>
         </div>

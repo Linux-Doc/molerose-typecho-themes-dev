@@ -142,34 +142,42 @@ $link = '<li class="next disabled"><a href="javascript:;" data-toggle="article-t
 echo $link;
 }
 }
-              
+
+
 //获取评论的锚点链接
 function get_comment_at($coid)
 {
     $db   = Typecho_Db::get();
-    $prow = $db->fetchRow($db->select('parent')->from('table.comments')
-                                 ->where('coid = ? AND status = ?', $coid, 'approved'));
-    $parent = $prow['parent'];
-    if ($parent != "0") {
-        $arow = $db->fetchRow($db->select('author')->from('table.comments')
-                                     ->where('coid = ? AND status = ?', $parent, 'approved'));
-        $author = $arow['author'];
-        $href   = '<a href="#comment-' . $parent . '">@' . $author . '</a>';
-        echo $href;
+    $prow = $db->fetchRow($db->select('parent,status')->from('table.comments')
+        ->where('coid = ?', $coid));
+    $parent = @$prow['parent'];
+    if ($parent != "0") {//子评论
+        $arow = $db->fetchRow($db->select('author,status')->from('table.comments')
+            ->where('coid = ?', $parent));//查询该条评论的父评论的作者的名称
+        @$author = @$arow['author'];//作者名称
+        if(@$author && $arow['status'] == "approved"){//父评论作者存在且父评论已经审核通过
+            if (@$prow['status'] == "waiting"){
+                echo '<em class="awaiting">'."您的评论正等待审核！".'</em>';
+            }
+            echo '<a href="#comment-' . $parent . '"><div>@' . $author . '</div></a>';
+        }else{//父评论作者不存在或者父评论没有审核通过
+            if (@$prow['status'] == "waiting"){
+                echo '<em class="awaiting">'."您的评论正等待审核！".'</em>';
+            }else{
+                echo '';
+            }
+        }
     } else {
-        echo '';
+        //母评论，无需输出锚点链接
+        if (@$prow['status'] == "waiting"){
+            echo '<em class="awaiting">'."您的评论正等待审核！".'</em>';
+        }else{
+            echo '';
+        }
     }
 
 }
 
-//输出评论内容(不带p标签)
-function get_filtered_comment($coid){
-    $db   = Typecho_Db::get();
-    $rs=$db->fetchRow($db->select('text')->from('table.comments')
-                                 ->where('coid = ? AND status = ?', $coid, 'approved'));
-    $content=$rs['text'];
-    echo $content;
-}
 
 //评论时间
 function timesince($older_date,$comment_date = false) {
