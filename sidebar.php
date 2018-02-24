@@ -29,12 +29,10 @@
                   ?> 
                   <?php if($time>=6 && $time<=11): ?>
                   <p><?php _e('新的一天要元气满满！'); ?></p>
-                  <?php elseif($time>=12 && $time<=14): ?>
-                  <p><?php _e('打个盹儿吧'); ?></p>
-                  <?php elseif($time>=15 && $time<=19): ?>
-                  <p><?php _e('快下班了，开心！'); ?></p>
+                  <?php elseif($time>=12 && $time<=17): ?>
+                  <p><?php _e('该不该叫个下午茶呢？'); ?></p>
                   <?php else : ?>
-                       <p><?php _e('夜深了，睡吧'); ?></p>
+                       <p><?php _e('天黑了，回家吧！'); ?></p>
                   <?php endif; ?>
                   </div>
                   <div class="progress progress-xs m-b-none dker">
