@@ -24,7 +24,17 @@
         e.stopPropagation();
     });
   </script>
-
+  <script>
+    $(document).ready(function(){
+      var comment_html = document.getElementById("comment");
+      $('#image-insert').bind("click",function(){
+        var adress=prompt("请输入图片地址", "http://");
+        if (adress) {
+          comment_html.value += '<img src="' + adress + '" rel="external nofollow">';
+        }
+      });
+  });
+  </script>
   <?php $this->footer(); ?>
  </body>
 </html>

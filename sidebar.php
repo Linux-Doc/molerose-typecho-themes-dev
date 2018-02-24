@@ -18,6 +18,30 @@
            </li> 
            <li>
             <div class="lt text-center clearfix">
+            <div class="lt text-center clearfix">
+              <!-- 时刻 -->
+               <div class="wrapper">
+                <div>
+                  <?php 
+                      $time= date("H",time()+($this->options->timezone - idate("Z")));
+                      $percent= $time/24;
+                      $percent= sprintf("%01.2f", $percent*100).'%';
+                  ?> 
+                  <?php if($time>=6 && $time<=11): ?>
+                  <p><?php _e('新的一天要元气满满！'); ?></p>
+                  <?php elseif($time>=12 && $time<=14): ?>
+                  <p><?php _e('打个盹儿吧'); ?></p>
+                  <?php elseif($time>=15 && $time<=19): ?>
+                  <p><?php _e('快下班了，开心！'); ?></p>
+                  <?php else : ?>
+                       <p><?php _e('夜深了，睡吧'); ?></p>
+                  <?php endif; ?>
+                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="<?php echo $percent; ?>" style="width: <?php echo $percent; ?>"></div>
+                  </div>
+              </div>
+              <!-- end -->
                <p class="m-t-sm blog-nav-ico col-xs-12"> 
                 <a href="<?php $this->options->socialgithub(); ?>" title="Github"  target="_blank" ><i class="fa fa-github"></i></a> 
                 <a href="mailto:<?php $this->options->socialemail(); ?>" title="Email" ><i class="fa fa-envelope-o"></i></a>

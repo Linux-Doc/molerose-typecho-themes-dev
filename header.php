@@ -55,12 +55,12 @@
 	<!-- Begin -->
      <ul class="nav navbar-nav m-n hidden-xs"> 
      <!-- SuiuiNian -->
-      <li class="hidden-xs"> <a href="#" class="dropdown-toggle lt" data-toggle="dropdown"> <i class="fa fa-bell-o"></i></a> 
+      <li class="hidden-xs"> <a href="javascrip:;" class="dropdown-toggle lt" data-toggle="dropdown"> <i class="fa fa-comments-o"></i></a> 
        <section class="dropdown-menu aside-xl animated fadeInUp"> 
         <section class="panel bg-white"> 
          <div class="panel-heading b-light bg-light"> 
           <strong><?php _e('朋友们的碎碎念'); ?></strong> 
-          <a href="#" class="pull-right" title="查看更多"><i class="fa fa-share"></i></a> 
+          <a href="/Avatars.html" class="pull-right" title="查看更多"><i class="fa fa-share"></i></a> 
          </div> 
         <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
         <?php while($comments->next()): ?>
@@ -78,8 +78,56 @@
        </section> 
        </li> 
        <!-- / SuiuiNian -->
+       <li class="hidden-xs"> <a href="javascript:;" class="dropdown-toggle lt" data-toggle="dropdown"> <i class="fa fa-bell-o"></i></a> 
+       <section class="dropdown-menu aside-xl animated fadeInUp"> 
+        <section class="panel bg-white"> 
+         <div class="panel-heading b-light bg-light"> 
+          <strong><?php _e('时间他总是那么淘气'); ?></strong> 
+          <a href="/TalkList.html" class="pull-right" title="查看更多"><i class="fa fa-share"></i></a> 
+         </div> 
+          <div class="list-group">
+                <?php
+                 //$comments->listComments(); 
+                $slug = "talklist";    //页面缩略名，指的是.php页面的文件名这里是talk.php，所以他就是talk
+                $limit = 4;    //调用数量
+                $length = 140;    //截取长度
+                $ispage = true;    //true 输出slug页面评论，false输出其它所有评论
+                $isGuestbook = $ispage ? " = " : " <> ";
+                 
+                $db = $this->db;    //Typecho_Db::get();
+                $options = $this->options;    //Typecho_Widget::widget('Widget_Options');
+                 
+                $page = $db->fetchRow($db->select()->from('table.contents')
+                    ->where('table.contents.status = ?', 'publish')
+                    ->where('table.contents.created < ?', $options->gmtTime)
+                    ->where('table.contents.slug = ?', $slug));
+                 
+                if ($page) {
+                    $type = $page['type'];
+                    $routeExists = (NULL != Typecho_Router::get($type));
+                    $page['pathinfo'] = $routeExists ? Typecho_Router::url($type, $page) : '#';
+                    $page['permalink'] = Typecho_Common::url($page['pathinfo'], $options->index);
+                 
+                    $comments = $db->fetchAll($db->select()->from('table.comments')
+                        ->where('table.comments.status = ?', 'approved')
+                        ->where('table.comments.created < ?', $options->gmtTime)
+                        ->where('table.comments.type = ?', 'comment')
+                        ->where('table.comments.cid ' . $isGuestbook . ' ?', $page['cid'])
+                        ->order('table.comments.created', Typecho_Db::SORT_DESC)
+                        ->limit($limit));
+                 
+                    foreach ($comments AS $comment) {
+                     echo '<a href="javascript:;" class="list-group-item"><span class="clear block m-b-none words_contents">'.$comment['text'].'<br><small class="text-muted">'.date('Y年n月j日 H:i:s',$comment['created']+($this->options->timezone - idate("Z"))).'</small></span></a>';
+                    }
+                } else {
+                    echo '<a href="javascript:;" class="list-group-item"><span class="clear block m-b-none">这是一条默认的说说，如果你看到这条动态，请去后台新建独立页面，地址填写Talklist,自定义模板选择时光机。<br><small class="text-muted">'.date('Y年n月j日 H:i:s',time()+($this->options->timezone - idate("Z"))).'</small></span></a>';
+                }?>
+          </div>
+        </section> 
+       </section> 
+       </li>
        <!-- Login -->
-       <li class="hidden-xs"> <a href="#" data-toggle="dropdown" class="dropdown-toggle lt"> <i class="fa fa-user-o"></i> </a> 
+       <li class="hidden-xs"> <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle lt"> <i class="fa fa-user-o"></i> </a> 
        <section class="dropdown-menu aside animated fadeInUp panel-body bg-white dropdown-stop"> 
           <form role="form" action="<?php $this->options->loginaction(); ?>" method="post">
             <div class="form-group">

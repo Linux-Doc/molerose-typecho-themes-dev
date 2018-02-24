@@ -776,6 +776,16 @@ body.container {
 .post-sum {
   line-height: 30px;
 }
+.blog-naughty > ol.comment-list{
+  padding-left: 0;
+}
+.blog-naughty > ol.comment-list > div {
+  border-bottom: 1px solid #eaeef1;
+}
+.blog-naughty > ol.comment-list > div small p {
+  margin-bottom: 0;
+  margin-left: 19px;
+}
 .blog-post .post-sum img {
   max-width: 100%;
 }
