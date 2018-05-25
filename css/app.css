@@ -776,6 +776,18 @@ body.container {
 .post-sum {
   line-height: 30px;
 }
+.post-sum h3 {
+  font-size: 17px;
+  font-weight: 700;
+  border-left: 3px solid #4cb6cb;
+  padding-left: 10px;
+  margin: 20px 0;
+}
+.post-sum h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 10px 0;
+}
 .blog-naughty > ol.comment-list{
   padding-left: 0;
 }
