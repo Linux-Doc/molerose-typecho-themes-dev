@@ -76,7 +76,6 @@ function themeConfig($form) {
 
 }
 
-
 /*
 function themeFields($layout) {
     $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点LOGO地址'), _t('在这里填入一个图片URL地址, 以在网站标题前加上一个LOGO'));
@@ -93,25 +92,25 @@ function themeFields($layout) {
 */
 function theNext($widget, $default = NULL)
 {
-$db = Typecho_Db::get();
-$sql = $db->select()->from('table.contents')
-->where('table.contents.created > ?', $widget->created)
-->where('table.contents.status = ?', 'publish')
-->where('table.contents.type = ?', $widget->type)
-->where('table.contents.password IS NULL')
-->order('table.contents.created', Typecho_Db::SORT_ASC)
-->limit(1);
-$content = $db->fetchRow($sql);
+    $db = Typecho_Db::get();
+    $sql = $db->select()->from('table.contents')
+    ->where('table.contents.created > ?', $widget->created)
+    ->where('table.contents.status = ?', 'publish')
+    ->where('table.contents.type = ?', $widget->type)
+    ->where('table.contents.password IS NULL')
+    ->order('table.contents.created', Typecho_Db::SORT_ASC)
+    ->limit(1);
+    $content = $db->fetchRow($sql);
 
-if ($content) {
-$content = $widget->filter($content);
-$link = '<li class="previous"> <a href="' . $content['permalink'] . '" title="' . $content['title'] . '" data-toggle="article-tooltip" data-placement="right"> 上一篇 </a></li>
-';
-echo $link;
-} else {
-$link = '<li class="previous disabled"><a href="javascript:;" data-toggle="article-tooltip" data-placement="right" title="没有了，亲！">上一篇</a></li>';
-echo $link;
-}
+    if ($content) {
+    $content = $widget->filter($content);
+    $link = '<li class="previous"> <a href="' . $content['permalink'] . '" title="' . $content['title'] . '" data-toggle="article-tooltip" data-placement="right"> 上一篇 </a></li>
+    ';
+    echo $link;
+    } else {
+    $link = '<li class="previous disabled"><a href="javascript:;" data-toggle="article-tooltip" data-placement="right" title="没有了，亲！">上一篇</a></li>';
+    echo $link;
+    }
 }
  
 /**
@@ -123,26 +122,25 @@ echo $link;
 */
 function thePrev($widget, $default = NULL)
 {
-$db = Typecho_Db::get();
-$sql = $db->select()->from('table.contents')
-->where('table.contents.created < ?', $widget->created)
-->where('table.contents.status = ?', 'publish')
-->where('table.contents.type = ?', $widget->type)
-->where('table.contents.password IS NULL')
-->order('table.contents.created', Typecho_Db::SORT_DESC)
-->limit(1);
-$content = $db->fetchRow($sql);
- 
-if ($content) {
-$content = $widget->filter($content);
-$link = '<li class="next"> <a href="' . $content['permalink'] . '" title="' . $content['title'] . '" data-toggle="article-tooltip" data-placement="left"> 下一篇 </a></li>';
-echo $link;
-} else {
-$link = '<li class="next disabled"><a href="javascript:;" data-toggle="article-tooltip" data-placement="left" title="没有了，亲！">下一篇</a></li>';
-echo $link;
+    $db = Typecho_Db::get();
+    $sql = $db->select()->from('table.contents')
+    ->where('table.contents.created < ?', $widget->created)
+    ->where('table.contents.status = ?', 'publish')
+    ->where('table.contents.type = ?', $widget->type)
+    ->where('table.contents.password IS NULL')
+    ->order('table.contents.created', Typecho_Db::SORT_DESC)
+    ->limit(1);
+    $content = $db->fetchRow($sql);
+    
+    if ($content) {
+    $content = $widget->filter($content);
+    $link = '<li class="next"> <a href="' . $content['permalink'] . '" title="' . $content['title'] . '" data-toggle="article-tooltip" data-placement="left"> 下一篇 </a></li>';
+    echo $link;
+    } else {
+    $link = '<li class="next disabled"><a href="javascript:;" data-toggle="article-tooltip" data-placement="left" title="没有了，亲！">下一篇</a></li>';
+    echo $link;
+    }
 }
-}
-
 
 //获取评论的锚点链接
 function get_comment_at($coid)
@@ -178,24 +176,162 @@ function get_comment_at($coid)
 
 }
 
-
 //评论时间
 function timesince($older_date,$comment_date = false) {
-$chunks = array(
-array(86400 , '天'),
-array(3600 , '小时'),
-array(60 , '分'),
-array(1 , '秒'),
-);
-$newer_date = time();
-$since = abs($newer_date - $older_date);
+    $chunks = array(
+    array(86400 , '天'),
+    array(3600 , '小时'),
+    array(60 , '分'),
+    array(1 , '秒'),
+    );
+    $newer_date = time();
+    $since = abs($newer_date - $older_date);
 
-for ($i = 0, $j = count($chunks); $i < $j; $i++){
-$seconds = $chunks[$i][0];
-$name = $chunks[$i][1];
-if (($count = floor($since / $seconds)) != 0) break;
+    for ($i = 0, $j = count($chunks); $i < $j; $i++){
+    $seconds = $chunks[$i][0];
+    $name = $chunks[$i][1];
+    if (($count = floor($since / $seconds)) != 0) break;
+    }
+    $output = $count.$name.'前';
+    return $output;
 }
-$output = $count.$name.'前';
 
-return $output;
+// 获取浏览器信息
+function getBrowser($agent)
+{
+    if (preg_match('/MSIE\s([^\s|;]+)/i', $agent, $regs)) {
+        $outputer = 'IE浏览器';
+    } else if (preg_match('/FireFox\/([^\s]+)/i', $agent, $regs)) {
+      $str1 = explode('Firefox/', $regs[0]);
+$FireFox_vern = explode('.', $str1[1]);
+        $outputer = '火狐浏览器 '. $FireFox_vern[0];
+    } else if (preg_match('/Maxthon([\d]*)\/([^\s]+)/i', $agent, $regs)) {
+      $str1 = explode('Maxthon/', $agent);
+$Maxthon_vern = explode('.', $str1[1]);
+        $outputer = '傲游浏览器 '.$Maxthon_vern[0];
+    } else if (preg_match('#SE 2([a-zA-Z0-9.]+)#i', $agent, $regs)) {
+        $outputer = '搜狗浏览器';
+    } else if (preg_match('#360([a-zA-Z0-9.]+)#i', $agent, $regs)) {
+$outputer = '360浏览器';
+    } else if (preg_match('/Edge([\d]*)\/([^\s]+)/i', $agent, $regs)) {
+        $str1 = explode('Edge/', $regs[0]);
+$Edge_vern = explode('.', $str1[1]);
+        $outputer = 'Edge '.$Edge_vern[0];
+    } else if (preg_match('/UC/i', $agent)) {
+              $str1 = explode('rowser/',  $agent);
+$UCBrowser_vern = explode('.', $str1[1]);
+        $outputer = 'UC浏览器 '.$UCBrowser_vern[0];
+    } else if (preg_match('/MicroMesseng/i', $agent, $regs)) {
+        $outputer = '微信内嵌浏览器';
+    }  else if (preg_match('/WeiBo/i', $agent, $regs)) {
+        $outputer = '微博内嵌浏览器';
+    }  else if (preg_match('/QQ/i', $agent, $regs)||preg_match('/QQBrowser\/([^\s]+)/i', $agent, $regs)) {
+                  $str1 = explode('rowser/',  $agent);
+$QQ_vern = explode('.', $str1[1]);
+        $outputer = 'QQ浏览器 '.$QQ_vern[0];
+    } else if (preg_match('/BIDU/i', $agent, $regs)) {
+        $outputer = '百度浏览器';
+    } else if (preg_match('/LBBROWSER/i', $agent, $regs)) {
+        $outputer = '猎豹浏览器';
+    } else if (preg_match('/TheWorld/i', $agent, $regs)) {
+        $outputer = '世界之窗浏览器';
+    } else if (preg_match('/XiaoMi/i', $agent, $regs)) {
+        $outputer = '小米浏览器';
+    } else if (preg_match('/UBrowser/i', $agent, $regs)) {
+              $str1 = explode('rowser/',  $agent);
+$UCBrowser_vern = explode('.', $str1[1]);
+        $outputer = 'UC浏览器 '.$UCBrowser_vern[0];
+    } else if (preg_match('/mailapp/i', $agent, $regs)) {
+        $outputer = 'email内嵌浏览器';
+    } else if (preg_match('/2345Explorer/i', $agent, $regs)) {
+        $outputer = '2345浏览器';
+    } else if (preg_match('/Sleipnir/i', $agent, $regs)) {
+        $outputer = '神马浏览器';
+    } else if (preg_match('/YaBrowser/i', $agent, $regs)) {
+        $outputer = 'Yandex浏览器';
+    }  else if (preg_match('/Opera[\s|\/]([^\s]+)/i', $agent, $regs)) {
+        $outputer = 'Opera浏览器';
+    } else if (preg_match('/MZBrowser/i', $agent, $regs)) {
+        $outputer = '魅族浏览器';
+    } else if (preg_match('/VivoBrowser/i', $agent, $regs)) {
+        $outputer = 'vivo浏览器';
+    } else if (preg_match('/Quark/i', $agent, $regs)) {
+        $outputer = '夸克浏览器';
+    } else if (preg_match('/mixia/i', $agent, $regs)) {
+        $outputer = '米侠浏览器';
+    }else if (preg_match('/fusion/i', $agent, $regs)) {
+        $outputer = '客户端';
+    } else if (preg_match('/CoolMarket/i', $agent, $regs)) {
+        $outputer = '基安内置浏览器';
+    } else if (preg_match('/Thunder/i', $agent, $regs)) {
+        $outputer = '迅雷内置浏览器';
+    } else if (preg_match('/Chrome([\d]*)\/([^\s]+)/i', $agent, $regs)) {
+$str1 = explode('Chrome/', $agent);
+$chrome_vern = explode('.', $str1[1]);
+        $outputer = 'Chrome '.$chrome_vern[0];
+    } else if (preg_match('/safari\/([^\s]+)/i', $agent, $regs)) {
+         $str1 = explode('Version/',  $agent);
+$safari_vern = explode('.', $str1[1]);
+        $outputer = 'Safari '.$safari_vern[0];
+    } else{
+        $outputer = '?浏览器';
+    }
+    echo $outputer;
+}
+
+// 获取操作系统信息
+function getOs($agent)
+{
+    $os = false;
+ 
+    if (preg_match('/win/i', $agent)) {
+        if (preg_match('/nt 6.0/i', $agent)) {
+            $os = '<i class="fa fa-windows"></i> Vista';
+        } else if (preg_match('/nt 6.1/i', $agent)) {
+            $os = '<i class="fa fa-windows"></i> 7';
+        } else if (preg_match('/nt 6.2/i', $agent)) {
+            $os = '<i class="fa fa-windows"></i> 8';
+        } else if(preg_match('/nt 6.3/i', $agent)) {
+            $os = '<i class="fa fa-windows"></i> 8.1';
+        } else if(preg_match('/nt 5.1/i', $agent)) {
+            $os = '<i class="fa fa-windows"></i> XP';
+        } else if (preg_match('/nt 10.0/i', $agent)) {
+            $os = '<i class="fa fa-windows"></i> 10';
+        } else{
+            $os = '<i class="fa fa-windows"></i>';
+        }
+    } else if (preg_match('/android/i', $agent)) {
+    if (preg_match('/android 9/i', $agent)) {
+            $os = '<i class="fa fa-android"></i> P';
+        }
+    else if (preg_match('/android 8/i', $agent)) {
+            $os = '<i class="fa fa-android"></i> O';
+        }
+    else if (preg_match('/android 7/i', $agent)) {
+            $os = '<i class="fa fa-android"></i> N';
+        }
+    else if (preg_match('/android 6/i', $agent)) {
+            $os = '<i class="fa fa-android"></i> M';
+        }
+    else if (preg_match('/android 5/i', $agent)) {
+            $os = '<i class="fa fa-android"></i> L';
+        }
+    else{
+            $os = '<i class="fa fa-android"></i>';
+    }
+    }
+    else if (preg_match('/ubuntu/i', $agent)) {
+        $os = '<i class="fa fa-linux"></i>';
+    } else if (preg_match('/linux/i', $agent)) {
+        $os = '<i class="fa fa-linux"></i>';
+    } else if (preg_match('/iPhone/i', $agent)) {
+        $os = '<i class="fa fa-apple"></i>';
+    } else if (preg_match('/mac/i', $agent)) {
+        $os = '<i class="fa fa-apple"></i>';
+    }else if (preg_match('/fusion/i', $agent)) {
+        $os = '<i class="fa fa-android"></i>';
+    } else {
+        $os = '?系统';
+    }
+    echo $os;
 }
