@@ -1762,7 +1762,7 @@ fieldset[disabled] .btn-dark.active {
   position: absolute;
   z-index: 0;
   top: 0;
-  left: 24px;
+  left: 23px;
   width: 1px;
   height: 100%;
   background: #eee;
