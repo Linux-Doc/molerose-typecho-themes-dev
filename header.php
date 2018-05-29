@@ -65,7 +65,7 @@
         <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
         <?php while($comments->next()): ?>
             <div class="list-group list-group-alt"> 
-              <a href="<?php $comments->permalink(); ?>" class="media list-group-item"> 
+              <a href="<?php $comments->permalink(); ?>" class="media list-group-item blog-suisuinian"> 
               <span class="pull-left thumb-sm"> <?php $comments->gravatar('40', ''); ?> </span> 
               <span class="media-body block m-b-none"><?php $comments->author(false); ?><br /> 
                 <small class="text-muted"><?php $comments->excerpt(50, '...'); ?></small> 

@@ -31,8 +31,8 @@ echo $commentClass;
             <a href="<?php $comments->url(); ?>" target="_blank" rel="external nofollow">
             <?php $comments->gravatar('40', ''); ?>
             </a>
-            <cite class="fn comment-info-title"><?php echo $author; ?><?php  echo '<span class="label bg-dark m-l-xs">'.$isauthor.'</span>';?> <?php getBrowser($comments->agent); ?> <?php getOs($comments->agent); ?></cite>
-            <span class="comment-meta" ><?php echo timesince($comments->created);?></span>
+            <cite class="fn comment-info-title"><?php echo $author; ?><?php  echo '<span class="label bg-dark m-l-xs">'.$isauthor.'</span>';?></cite>
+            <span class="comment-meta" ><?php echo timesince($comments->created);?> <?php getBrowser($comments->agent); ?> <?php getOs($comments->agent); ?></span>
         </div>
 
         <div><b><?php get_comment_at($comments->coid)?></b></div>

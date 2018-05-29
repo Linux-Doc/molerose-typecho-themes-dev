@@ -788,6 +788,9 @@ body.container {
   font-weight: 700;
   margin: 10px 0;
 }
+.blog-suisuinian {
+  border-bottom: 0;
+}
 .blog-naughty > ol.comment-list{
   padding-left: 0;
 }
