@@ -47,6 +47,8 @@
               selectors: "h3,h4"
             }).data("toc-tocify");
             
+            prettyPrint();
+            $(".optionName").popover({ trigger: "hover" });
 
         });
     </script> 
