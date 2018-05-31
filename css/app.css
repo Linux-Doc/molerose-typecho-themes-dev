@@ -1427,7 +1427,7 @@ body.container {
   color: #788188;
 }
 .btn-link.active {
-  webkit-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 .btn-default {
