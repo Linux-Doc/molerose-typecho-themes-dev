@@ -903,39 +903,27 @@ body.container {
 .blog-ad-box .block:hover a {
   color: #666;
 }
-
 .tocify {
     width: 100%;
 }
-.tocify .tocify-header {
+.tocify ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.tocify li {
+    padding: 10px 15px;
     background: #fff;
     border:1px solid #eaeef1;
     margin-bottom: -1px;
-    margin-left: 0;
-    padding-left: 0;
-    list-style: none;
-}
-.tocify .tocify-header li {
-    padding: 10px 15px;
-}
-.tocify .tocify-header:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-.tocify .tocify-header:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  margin-bottom: 0;
 }
 .tocify-subheader {
   font-size: 12px;
-  list-style: none;
-  padding-left: 0;
 }
 .tocify-header .active {
   background: #f8f9f9;
+  font-weight: 700;
 }
-
 .comment-txt-box .awaiting {
   font-size: 12px;
   font-style: normal;
